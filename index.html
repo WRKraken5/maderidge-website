@@ -7,7 +7,7 @@
   <meta name="description" content="MadeRidge Website Design builds custom, fast-loading websites for small and mid-sized businesses. A two-person studio, real work, no templates.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -18,10 +18,10 @@
       <nav class="main-nav" aria-label="Primary">
         <ul>
           <li><a href="/" aria-current="page">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#work">Work</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -32,13 +32,21 @@
       <div class="container">
         <h1>Custom websites for businesses that need to be found, trusted, and used.</h1>
         <p class="lede">MadeRidge Website Design is a two-person studio building fast, accessible, custom-built websites. No page builder templates. No inflated claims. Just a site that does its job.</p>
-        <a class="btn" href="contact.html">Request a project quote</a>
+        <a class="btn" href="/contact.html">Request a project quote</a>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="about">
       <div class="container">
-        <h2>What we do</h2>
+        <h2>About us</h2>
+        <p style="max-width: var(--max-reading);">MadeRidge Website Design is run by two people who design, build, and ship every project ourselves. No outsourced work, no account managers relaying your notes to someone else. You talk directly with the person writing your code.</p>
+        <p style="max-width: var(--max-reading);">We work in short, clearly scoped engagements: a discovery call, a fixed-price quote, a build phase with regular check-ins, and a launch review before anything goes live.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="services">
+      <div class="container">
+        <h2>Services</h2>
         <div class="stacked-list">
           <div class="stacked-list-item">
             <span class="index">01</span>
@@ -65,32 +73,32 @@
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section" id="work">
       <div class="container">
         <h2>Recent work</h2>
         <p>Case studies of engagements we have completed, shown here with the client's permission.</p>
         <div class="work-grid">
           <article class="work-card">
-            <img src="images/placeholder-case-study-1.jpg" alt="Screenshot of a client's homepage showing their new product catalog layout" width="600" height="400">
+            <img src="/images/placeholder-case-study-1.jpg" alt="Screenshot of a client's homepage showing their new product catalog layout" width="600" height="400">
             <h3>Case study title</h3>
             <p>One sentence on the real outcome for this client.</p>
-            <a href="work.html">View this project</a>
+            <a href="/contact.html">Ask us about this project</a>
           </article>
           <article class="work-card">
-            <img src="images/placeholder-case-study-2.jpg" alt="Screenshot of a client's services page showing the redesigned booking flow" width="600" height="400">
+            <img src="/images/placeholder-case-study-2.jpg" alt="Screenshot of a client's services page showing the redesigned booking flow" width="600" height="400">
             <h3>Case study title</h3>
             <p>One sentence on the real outcome for this client.</p>
-            <a href="work.html">View this project</a>
+            <a href="/contact.html">Ask us about this project</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-alt" id="contact">
       <div class="container">
         <h2>Start a project</h2>
         <p>Tell us about your business and what the site needs to do.</p>
-        <a class="btn" href="contact.html">Go to the contact form</a>
+        <a class="btn" href="/contact.html">Go to the contact form</a>
       </div>
     </section>
   </main>
@@ -100,14 +108,14 @@
       <div class="business-info">
         <p><strong>MadeRidge Website Design, LLC</strong><br>
         [Street address, City, State ZIP]<br>
-        Phone: [studio phone number] · Email: <a href="mailto:hello@maderidgewebsitedesign.com">hello@maderidgewebsitedesign.com</a></p>
+        Phone: [studio phone number] &middot; Email: <a href="mailto:hello@maderidgewebsitedesign.com">hello@maderidgewebsitedesign.com</a></p>
       </div>
       <nav aria-label="Legal">
         <ul>
-          <li><a href="legal/terms.html">Terms of Service</a></li>
-          <li><a href="legal/privacy.html">Privacy Policy</a></li>
-          <li><a href="legal/cookies.html">Cookie Policy</a></li>
-          <li><a href="legal/refunds.html">Refund Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/cookies.html">Cookie Policy</a></li>
+          <li><a href="/refunds.html">Refund Policy</a></li>
           <li><button type="button" id="open-cookie-prefs" class="btn-secondary btn" style="padding:0.4rem 0.8rem;">Cookie preferences</button></li>
         </ul>
       </nav>
@@ -117,7 +125,7 @@
 
   <div class="consent-banner" id="consent-banner" hidden role="region" aria-label="Cookie consent">
     <div class="container">
-      <p>We use a small amount of privacy-focused, cookieless analytics to understand site traffic. Read our <a href="legal/cookies.html">Cookie Policy</a> for details.</p>
+      <p>We use a small amount of privacy-focused, cookieless analytics to understand site traffic. Read our <a href="/cookies.html">Cookie Policy</a> for details.</p>
       <div class="actions">
         <button type="button" class="btn-secondary btn" id="cookie-decline">Decline</button>
         <button type="button" class="btn" id="cookie-accept">Accept</button>
@@ -125,7 +133,7 @@
     </div>
   </div>
 
-  <script src="js/main.js"></script>
-  <script src="js/cookie-consent.js"></script>
+  <script src="/main.js"></script>
+  <script src="/cookie-consent.js"></script>
 </body>
 </html>

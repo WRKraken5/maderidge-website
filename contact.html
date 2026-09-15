@@ -7,7 +7,7 @@
   <meta name="description" content="Request a project quote from MadeRidge Website Design.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -18,10 +18,10 @@
       <nav class="main-nav" aria-label="Primary">
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="contact.html" aria-current="page">Contact</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#work">Work</a></li>
+          <li><a href="/contact.html" aria-current="page">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -70,7 +70,7 @@
 
           <div class="consent-row">
             <input type="checkbox" id="consent-privacy" name="consentPrivacy" required aria-describedby="consent-privacy-hint">
-            <label for="consent-privacy">I agree to be contacted about my inquiry and have read the <a href="legal/privacy.html">Privacy Policy</a>. <span aria-hidden="true">*</span></label>
+            <label for="consent-privacy">I agree to be contacted about my inquiry and have read the <a href="/privacy.html">Privacy Policy</a>. <span aria-hidden="true">*</span></label>
           </div>
           <p class="hint" id="consent-privacy-hint">Required to submit this form.</p>
 
@@ -91,21 +91,32 @@
       <div class="business-info">
         <p><strong>MadeRidge Website Design, LLC</strong><br>
         [Street address, City, State ZIP]<br>
-        Phone: [studio phone number] · Email: <a href="mailto:hello@maderidgewebsitedesign.com">hello@maderidgewebsitedesign.com</a></p>
+        Phone: [studio phone number] &middot; Email: <a href="mailto:hello@maderidgewebsitedesign.com">hello@maderidgewebsitedesign.com</a></p>
       </div>
       <nav aria-label="Legal">
         <ul>
-          <li><a href="legal/terms.html">Terms of Service</a></li>
-          <li><a href="legal/privacy.html">Privacy Policy</a></li>
-          <li><a href="legal/cookies.html">Cookie Policy</a></li>
-          <li><a href="legal/refunds.html">Refund Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/cookies.html">Cookie Policy</a></li>
+          <li><a href="/refunds.html">Refund Policy</a></li>
+          <li><button type="button" id="open-cookie-prefs" class="btn-secondary btn" style="padding:0.4rem 0.8rem;">Cookie preferences</button></li>
         </ul>
       </nav>
       <p>&copy; 2026 MadeRidge Website Design, LLC. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
-  <script src="js/cookie-consent.js"></script>
+  <div class="consent-banner" id="consent-banner" hidden role="region" aria-label="Cookie consent">
+    <div class="container">
+      <p>We use a small amount of privacy-focused, cookieless analytics to understand site traffic. Read our <a href="/cookies.html">Cookie Policy</a> for details.</p>
+      <div class="actions">
+        <button type="button" class="btn-secondary btn" id="cookie-decline">Decline</button>
+        <button type="button" class="btn" id="cookie-accept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/main.js"></script>
+  <script src="/cookie-consent.js"></script>
 </body>
 </html>

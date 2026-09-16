@@ -86,6 +86,17 @@ body {
   font-size: var(--step-0);
   line-height: 1.5;
 }
+
+/* Film grain -- fixed, full-viewport SVG noise texture over dark surfaces */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
 img { max-width: 100%; display: block; border-radius: 0; }
 h1, h2, h3, h4 {
   font-family: var(--font-display);
@@ -235,6 +246,43 @@ section[id] {
   z-index: 1;
 }
 .hero p.lede { font-size: var(--step-1); color: var(--color-ink-soft); max-width: var(--max-reading); }
+
+/* Dual ambient glow orbs -- drift slowly behind the hero content */
+.glow-orb-1,
+.glow-orb-2 {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  animation: glow-orb-float 12s ease-in-out infinite alternate;
+}
+.glow-orb-1 {
+  top: 10%;
+  right: 15%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.12) 0%, transparent 70%);
+  filter: blur(90px);
+}
+.glow-orb-2 {
+  bottom: 20%;
+  left: 10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+  filter: blur(100px);
+  animation-delay: -6s;
+}
+@keyframes glow-orb-float {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-20px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glow-orb-1,
+  .glow-orb-2 {
+    animation: none;
+  }
+}
 
 /* Pill badges -- small eyebrow labels above section titles */
 .badge {

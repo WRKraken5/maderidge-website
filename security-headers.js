@@ -31,7 +31,7 @@ function applySecurityMiddleware(app) {
 
   app.use(
     cors({
-      origin: [process.env.SITE_ORIGIN], // e.g. "https://maderidgewebsitedesign.com" -- never "*" with credentials
+      origin: [process.env.SITE_ORIGIN], // e.g. "https://maderidge.vercel.app" -- never "*" with credentials
       credentials: true,
       methods: ["GET", "POST"],
     })

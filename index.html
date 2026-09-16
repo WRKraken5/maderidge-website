@@ -47,4 +47,146 @@
 
         <div class="work-grid">
           <!-- Case Study 1: Crooked Canopy -->
-          <article
+          <article class="work-card">
+            <img
+              src="/images/placeholder-case-study-1.jpg"
+              alt="Screenshot of the dynamic, filterable product catalog on the Crooked Canopy e-commerce homepage"
+              width="600"
+              height="400"
+              loading="lazy"
+            >
+            <h3>Crooked Canopy</h3>
+            <p>Built a dynamic, multi-category e-commerce catalog featuring filterable product tags that increased average user time-on-page..</p>
+            <a href="https://crookedcanopywoodworks.netlify.app/" target="_blank" rel="noopener noreferrer">View Website &rarr;</a>
+          </article>
+
+          <!-- Case Study 2: GL Visuals -->
+          <article class="work-card">
+            <img
+              src="/images/placeholder-case-study-2.jpg"
+              alt="Screenshot of the high-contrast GL Visuals homepage featuring cinematic media reels"
+              width="600"
+              height="400"
+              loading="lazy"
+            >
+            <h3>GL Visuals</h3>
+            <p>Designed a sleek, high-impact landing page that seamlessly integrates cinematic media reels, resulting in new client inquiries.</p>
+            <a href="https://glvisuals.wixsite.com/gl-visuals" target="_blank" rel="noopener noreferrer">View Website &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section section-alt" id="services">
+      <div class="container">
+        <h2>Services</h2>
+        <div class="stacked-list">
+          <div class="stacked-list-item">
+            <span class="index">01</span>
+            <div>
+              <h3>Design</h3>
+              <p>A high-contrast, distinctive visual system built around your business, not a recycled template.</p>
+            </div>
+          </div>
+          <div class="stacked-list-item">
+            <span class="index">02</span>
+            <div>
+              <h3>Development</h3>
+              <p>Fast, responsive, hand-built front ends. No bloated page builders slowing your site down.</p>
+            </div>
+          </div>
+          <div class="stacked-list-item">
+            <span class="index">03</span>
+            <div>
+              <h3>Launch support</h3>
+              <p>An accessibility and performance pass before every site goes live, plus support after launch.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2>About us</h2>
+        <p class="lede">MadeRidge is a small, hands-on studio. We handle every project ourselves, from first sketch to final deploy, so nothing gets lost in translation between you and the person building your site.</p>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <h2>Let's discuss your project</h2>
+        <p>Fill out the form below or email us directly to get started.</p>
+
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <!-- Honeypot Field for Spam Protection -->
+          <div class="hp-field">
+            <label for="b_name">Don't fill this out if you're human:</label>
+            <input type="text" name="b_name" id="b_name" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <div class="consent-row">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">I agree to the processing of my contact details to receive a response.</label>
+          </div>
+
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="business-info">
+        <p><strong>MadeRidge Website Design</strong><br>
+        Email: <a href="mailto:hello@maderidgewebsitedesign.com">hello@maderidgewebsitedesign.com</a></p>
+      </div>
+      <nav aria-label="Legal">
+        <ul>
+          <li><a href="/terms.html">Terms of Service</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/cookies.html">Cookie Policy</a></li>
+          <li><a href="/refunds.html">Refund Policy</a></li>
+          <li><button type="button" id="open-cookie-prefs" class="btn-secondary btn" style="padding:0.4rem 0.8rem;">Cookie preferences</button></li>
+        </ul>
+      </nav>
+      <p>&copy; 2026 MadeRidge Website Design. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Cookie Consent Banner -->
+  <div class="consent-banner" id="consent-banner" hidden role="region" aria-label="Cookie consent">
+    <div class="container">
+      <p>We use a small amount of privacy-focused, cookieless analytics to understand site traffic. Read our <a href="/cookies.html">Cookie Policy</a> for details.</p>
+      <div class="actions">
+        <button type="button" class="btn-secondary btn" id="cookie-decline">Decline</button>
+        <button type="button" class="btn" id="cookie-accept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/main.js"></script>
+  <script src="/cookie-consent.js"></script>
+</body>
+</html>

@@ -1,5 +1,5 @@
-/* MadeRidge Website Design -- Design System (v3: modern studio)
-   Ambient glow, subtle grid texture, glassmorphism cards, pill badges. */
+/* MadeRidge Website Design -- Design System (v4: bespoke creative agency)
+   Editorial serif headings, ambient glow + grain, bento grid, gradient dividers, spotlight cards. */
 
 :root {
   --color-bg: #111827;          /* main page background */
@@ -17,6 +17,7 @@
   --color-error: #F87171;       /* form errors -- 6.4:1 on bg (not specified in your list; chosen for dark-mode legibility) */
 
   --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-editorial: "Instrument Serif", ui-serif, Georgia, serif;
   --font-body: "Public Sans", ui-sans-serif, system-ui, sans-serif;
 
   --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
@@ -108,8 +109,22 @@ h1 { font-size: var(--step-4); }
 h2 { font-size: var(--step-3); }
 h3 { font-size: var(--step-2); }
 h4 { font-size: var(--step-1); }
+
+/* Editorial finish -- major section headings get the high-end display serif */
+h1, h2 {
+  font-family: var(--font-editorial);
+  font-weight: 400;
+}
+
 p { margin: 0 0 var(--space-2) 0; }
 a { color: var(--color-gold); }
+
+/* Italicized emphasis words inside subheadlines get the same editorial serif */
+.lede em {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  color: var(--color-ink);
+}
 
 /* No hover animations: instant, non-transitioning state changes only. */
 a, button, .btn { transition: none; }
@@ -150,7 +165,8 @@ section[id] {
 
 /* Header */
 .site-header {
-  border-bottom: 1px solid var(--color-line);
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent) 1;
   padding: var(--space-2) 0;
   background: var(--color-bg);
 }
@@ -226,7 +242,8 @@ section[id] {
   position: relative;
   overflow: hidden;
   padding: var(--space-6) 0 var(--space-5);
-  border-bottom: 1px solid var(--color-line);
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent) 1;
 }
 .hero::before {
   content: "";
@@ -299,8 +316,21 @@ section[id] {
   margin-bottom: var(--space-2);
 }
 
-/* Stacked list (replaces "3 cards in a row") -- glassmorphism finish with hover lift */
-.stacked-list { display: flex; flex-direction: column; gap: var(--space-3); }
+/* Services bento grid -- card #1 spans full width, #2 and #3 fill the row below */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+.services-grid .stacked-list-item:first-child {
+  grid-column: 1 / -1;
+}
+@media (max-width: 40rem) {
+  .services-grid { grid-template-columns: 1fr; }
+  .services-grid .stacked-list-item:first-child { grid-column: 1; }
+}
+
+/* Glassmorphism service card with spotlight hover lift */
 .stacked-list-item {
   display: grid;
   grid-template-columns: 4rem 1fr;
@@ -315,7 +345,7 @@ section[id] {
 }
 .stacked-list-item:hover {
   transform: translateY(-4px);
-  border-color: rgba(96, 165, 250, 0.4);
+  border-color: rgba(96, 165, 250, 0.3);
   box-shadow: 0 12px 30px -10px rgba(96, 165, 250, 0.15);
 }
 .stacked-list-item .index {
@@ -344,7 +374,7 @@ section[id] {
 }
 .work-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(96, 165, 250, 0.4);
+  border-color: rgba(96, 165, 250, 0.3);
   box-shadow: 0 12px 30px -10px rgba(96, 165, 250, 0.15);
 }
 .work-card img {
@@ -452,7 +482,8 @@ input:focus, textarea:focus { border-color: var(--color-gold-strong); }
 
 /* Footer */
 .site-footer {
-  border-top: 1px solid var(--color-line);
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent) 1;
   padding: var(--space-5) 0;
   background: var(--color-bg-raised);
 }

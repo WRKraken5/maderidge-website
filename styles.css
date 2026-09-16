@@ -198,6 +198,7 @@ section[id] {
   color: var(--color-ink);
 }
 .btn:hover { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-bg); }
+.btn-sm { padding: 0.4rem 0.8rem; }
 .btn-secondary {
   background: transparent;
   color: var(--color-ink);

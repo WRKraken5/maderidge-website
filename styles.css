@@ -80,11 +80,7 @@ html {
 }
 body {
   margin: 0;
-  background-color: var(--color-bg);
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-body);
   font-size: var(--step-0);

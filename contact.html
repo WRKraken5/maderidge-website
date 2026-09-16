@@ -14,7 +14,10 @@
 
   <header class="site-header">
     <div class="container">
-      <a class="logo" href="/">MadeRidge Website Design</a>
+      <a class="logo" href="/">
+        <img src="/images/logo-mark.png" alt="" class="site-logo-img">
+        <span class="logo-text">MadeRidge Website Design</span>
+      </a>
       <nav class="main-nav" aria-label="Primary">
         <ul>
           <li><a href="/">Home</a></li>
@@ -33,7 +36,7 @@
         <h1>Request a project quote</h1>
         <p>We collect only what we need to respond to your inquiry: your name, your email, and a description of the project. Phone number is optional.</p>
 
-        <form id="contact-form" method="POST" action="https://formspree.io/f/mjykbogl">
+        <form id="contact-form" method="post" action="/api/contact" novalidate>
           <!-- CSRF token: rendered server-side per session, validated on submit.
                In a static-site + serverless setup, fetch a fresh token before render
                or use a double-submit cookie pattern instead. -->
@@ -89,9 +92,8 @@
   <footer class="site-footer">
     <div class="container">
       <div class="business-info">
-        <p><strong>MadeRidge Website Design, LLC</strong><br>
-        [Street address, City, State ZIP]<br>
-        Phone: [studio phone number] &middot; Email: <a href="mailto:hello@maderidgewebsitedesign.com">hello@maderidgewebsitedesign.com</a></p>
+        <p><strong>MadeRidge Website Design</strong><br>
+        Email: <a href="mailto:hello@maderidgewebsitedesign.com">hello@maderidgewebsitedesign.com</a></p>
       </div>
       <nav aria-label="Legal">
         <ul>
@@ -102,7 +104,7 @@
           <li><button type="button" id="open-cookie-prefs" class="btn-secondary btn" style="padding:0.4rem 0.8rem;">Cookie preferences</button></li>
         </ul>
       </nav>
-      <p>&copy; 2026 MadeRidge Website Design, LLC. All rights reserved.</p>
+      <p>&copy; 2026 MadeRidge Website Design. All rights reserved.</p>
     </div>
   </footer>
 

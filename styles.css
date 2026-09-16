@@ -195,6 +195,22 @@ section[id] {
   color: var(--color-ink);
 }
 
+/* Mobile header -- nav drops to its own full-width row instead of
+   squeezing next to the logo and overlapping its wrapped text. */
+@media (max-width: 40rem) {
+  .site-header .container {
+    flex-wrap: wrap;
+    row-gap: var(--space-2);
+  }
+  .main-nav {
+    flex-basis: 100%;
+  }
+  .main-nav ul {
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+  }
+}
+
 /* Buttons -- sharp corners, flat fill, no shadow */
 .btn {
   display: inline-block;

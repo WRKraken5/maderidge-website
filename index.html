@@ -5,11 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MadeRidge Website Design | Modern Web Agency</title>
   <meta name="description" content="MadeRidge designs high-impact, performant websites for modern businesses.">
+  <link rel="canonical" href="https://maderidge.vercel.app/">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MadeRidge Website Design">
+  <meta property="og:url" content="https://maderidge.vercel.app/">
+  <meta property="og:title" content="MadeRidge Website Design | Modern Web Agency">
+  <meta property="og:description" content="MadeRidge designs high-impact, performant websites for modern businesses.">
+  <meta property="og:image" content="https://maderidge.vercel.app/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MadeRidge Website Design | Modern Web Agency">
+  <meta name="twitter:description" content="MadeRidge designs high-impact, performant websites for modern businesses.">
+  <meta name="twitter:image" content="https://maderidge.vercel.app/images/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MadeRidge Website Design",
+    "url": "https://maderidge.vercel.app/",
+    "logo": "https://maderidge.vercel.app/images/logo-mark.png",
+    "email": "hello@maderidgewebsitedesign.com",
+    "sameAs": []
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MadeRidge Website Design",
+    "url": "https://maderidge.vercel.app/"
+  }
+  </script>
 </head>
 <body>
 
@@ -20,7 +59,7 @@
   <header class="site-header">
     <div class="container">
       <a href="/" class="logo">
-        <img src="/images/logo-mark.png" alt="" class="site-logo-img">
+        <img src="/images/logo-mark.png" alt="" class="site-logo-img" width="77" height="40">
         <span class="logo-text">MadeRidge Website Design</span>
       </a>
       <nav class="main-nav" aria-label="Main navigation">
@@ -61,8 +100,8 @@
             <img
               src="/images/placeholder-case-study-1.jpg"
               alt="Screenshot of the dynamic, filterable product catalog on the Crooked Canopy e-commerce homepage"
-              width="600"
-              height="400"
+              width="1200"
+              height="561"
               loading="lazy"
             >
             <h3>Crooked Canopy</h3>
@@ -75,8 +114,8 @@
             <img
               src="/images/placeholder-case-study-2.jpg"
               alt="Screenshot of the high-contrast GL Visuals homepage featuring cinematic media reels"
-              width="600"
-              height="400"
+              width="1200"
+              height="579"
               loading="lazy"
             >
             <h3>GL Visuals</h3>
@@ -124,6 +163,7 @@
         <span class="badge">Who we are</span>
         <h2 class="reveal">About us</h2>
         <p class="lede reveal">MadeRidge is a small, hands-on web design studio run by two experienced creators. We handle every single project ourselves, taking your site from initial sketch to final deployment so your vision never gets lost in translation.</p>
+        <p class="reveal"><a href="#work">See our recent work &rarr;</a></p>
       </div>
     </section>
 
@@ -164,10 +204,10 @@
       </div>
       <nav aria-label="Legal">
         <ul>
-          <li><a href="/terms.html">Terms of Service</a></li>
-          <li><a href="/privacy.html">Privacy Policy</a></li>
-          <li><a href="/cookies.html">Cookie Policy</a></li>
-          <li><a href="/refunds.html">Refund Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/cookies">Cookie Policy</a></li>
+          <li><a href="/refunds">Refund Policy</a></li>
           <li><button type="button" id="open-cookie-prefs" class="btn-secondary btn btn-sm">Cookie preferences</button></li>
         </ul>
       </nav>
@@ -178,7 +218,7 @@
   <!-- Cookie Consent Banner -->
   <div class="consent-banner" id="consent-banner" hidden role="region" aria-label="Cookie consent">
     <div class="container">
-      <p>We use a small amount of privacy-focused, cookieless analytics to understand site traffic. Read our <a href="/cookies.html">Cookie Policy</a> for details.</p>
+      <p>We use a small amount of privacy-focused, cookieless analytics to understand site traffic. Read our <a href="/cookies">Cookie Policy</a> for details.</p>
       <div class="actions">
         <button type="button" class="btn-secondary btn" id="cookie-decline">Decline</button>
         <button type="button" class="btn" id="cookie-accept">Accept</button>

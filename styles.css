@@ -1,5 +1,5 @@
 /* MadeRidge Website Design -- Design System (v4: bespoke creative agency)
-   Editorial serif headings, ambient glow + grain, bento grid, gradient dividers, spotlight cards. */
+   Ambient glow + grain, bento grid, gradient dividers, spotlight cards. */
 
 :root {
   --color-bg: #111827;          /* main page background */
@@ -17,7 +17,6 @@
   --color-error: #F87171;       /* form errors -- 6.4:1 on bg (not specified in your list; chosen for dark-mode legibility) */
 
   --font-display: "Fraunces", ui-serif, Georgia, serif;
-  --font-editorial: "Instrument Serif", ui-serif, Georgia, serif;
   --font-body: "Public Sans", ui-sans-serif, system-ui, sans-serif;
 
   --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
@@ -109,22 +108,8 @@ h1 { font-size: var(--step-4); }
 h2 { font-size: var(--step-3); }
 h3 { font-size: var(--step-2); }
 h4 { font-size: var(--step-1); }
-
-/* Editorial finish -- major section headings get the high-end display serif */
-h1, h2 {
-  font-family: var(--font-editorial);
-  font-weight: 400;
-}
-
 p { margin: 0 0 var(--space-2) 0; }
 a { color: var(--color-gold); }
-
-/* Italicized emphasis words inside subheadlines get the same editorial serif */
-.lede em {
-  font-family: var(--font-editorial);
-  font-style: italic;
-  color: var(--color-ink);
-}
 
 /* No hover animations: instant, non-transitioning state changes only. */
 a, button, .btn { transition: none; }

@@ -4,6 +4,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   wireContactForm();
+  gateContactForm();
 });
 
 function wireContactForm() {
@@ -73,6 +74,34 @@ function wireContactForm() {
       status.textContent = "Something went wrong sending your message. Please email us directly instead.";
     }
   });
+}
+
+// The contact form submits lead data to Formspree, so it stays gated behind
+// cookie/data-collection consent, same as the quiz. Undecided is treated the
+// same as declined: only an explicit "accepted" unlocks it.
+function gateContactForm() {
+  const form = document.getElementById("contact-form");
+  const overlay = document.getElementById("contact-gate-overlay");
+  if (!form || !overlay) return;
+
+  const isConsentAccepted = () =>
+    window.MadeRidgeConsent && window.MadeRidgeConsent.get() === "accepted";
+
+  const apply = () => {
+    const unlocked = isConsentAccepted();
+    overlay.hidden = unlocked;
+    form.hidden = !unlocked;
+    Array.from(form.elements).forEach((el) => {
+      el.disabled = !unlocked;
+    });
+  };
+
+  window.addEventListener(
+    (window.MadeRidgeConsent && window.MadeRidgeConsent.EVENT) || "maderidge:consent-change",
+    apply
+  );
+
+  apply();
 }
 
 function showError(id, message) {

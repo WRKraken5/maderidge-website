@@ -554,6 +554,31 @@ input:focus, textarea:focus { border-color: var(--color-gold-strong); }
   margin-top: var(--space-3);
 }
 
+/* Consent gate: replaces the quiz widget's steps, or the contact form, when
+   cookies/data collection have not been accepted. */
+.quiz-gate-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 12rem;
+  padding: var(--space-4);
+  background: var(--color-bg-nav);
+  border: 1px solid var(--color-line);
+}
+.quiz-gate-overlay[hidden] { display: none; }
+.quiz-gate-message {
+  max-width: 32rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+.quiz-gate-message p {
+  color: var(--color-ink);
+  margin: 0;
+}
+
 .quiz-progress-track {
   height: 6px;
   background: var(--color-bg-raised);
@@ -575,6 +600,7 @@ input:focus, textarea:focus { border-color: var(--color-gold-strong); }
   color: var(--color-ink-soft);
 }
 
+.quiz-live-estimate[hidden] { display: none; }
 .quiz-live-estimate {
   display: flex;
   align-items: baseline;

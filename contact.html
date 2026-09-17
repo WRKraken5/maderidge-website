@@ -116,6 +116,15 @@
           <button type="submit" class="btn">Send inquiry</button>
           <p class="hint" id="form-status" aria-live="polite"></p>
         </form>
+
+        <!-- Shown by /main.js instead of the form above when cookies/data
+             collection have not been accepted. -->
+        <div class="quiz-gate-overlay" id="contact-gate-overlay" hidden>
+          <div class="quiz-gate-message">
+            <p>Data collection is currently disabled based on your cookie preferences. To use the project estimator and submit an inquiry, please enable essential cookies.</p>
+            <button type="button" class="btn" id="contact-enable-cookies" data-open-cookie-prefs>Enable Cookies to Unlock Quiz</button>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -132,7 +141,7 @@
           <li><a href="/privacy">Privacy Policy</a></li>
           <li><a href="/cookies">Cookie Policy</a></li>
           <li><a href="/refunds">Refund Policy</a></li>
-          <li><button type="button" id="open-cookie-prefs" class="btn-secondary btn btn-sm">Cookie preferences</button></li>
+          <li><button type="button" id="open-cookie-prefs" class="btn-secondary btn btn-sm" data-open-cookie-prefs>Cookie preferences</button></li>
         </ul>
       </nav>
       <p>&copy; 2026 MadeRidge Website Design. All rights reserved.</p>

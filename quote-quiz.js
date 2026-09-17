@@ -64,10 +64,12 @@
   if (!root) return;
 
   var stepsEl = document.getElementById("quiz-steps");
+  var progressWrap = root.querySelector(".quiz-progress");
   var progressFill = document.getElementById("quiz-progress-fill");
   var progressLabel = document.getElementById("quiz-progress-label");
   var liveEstimateWrap = document.getElementById("quiz-live-estimate");
   var liveEstimateValue = document.getElementById("quiz-live-estimate-value");
+  var gateOverlay = document.getElementById("quiz-gate-overlay");
 
   var TOTAL_QUESTION_STEPS = QUIZ_STEPS.length;
 
@@ -392,5 +394,33 @@
     return wrap;
   }
 
-  render();
+  // The quiz collects lead data (submitted to Formspree on the final step),
+  // so it stays gated behind cookie/data-collection consent. Undecided is
+  // treated the same as declined: only an explicit "accepted" unlocks it.
+  function isConsentAccepted() {
+    return window.MadeRidgeConsent && window.MadeRidgeConsent.get() === "accepted";
+  }
+
+  function applyGate() {
+    var unlocked = isConsentAccepted();
+
+    if (gateOverlay) gateOverlay.hidden = unlocked;
+    stepsEl.hidden = !unlocked;
+    if (progressWrap) progressWrap.hidden = !unlocked;
+
+    if (!unlocked) {
+      liveEstimateWrap.hidden = true;
+      stepsEl.innerHTML = "";
+      return;
+    }
+
+    render();
+  }
+
+  window.addEventListener(
+    (window.MadeRidgeConsent && window.MadeRidgeConsent.EVENT) || "maderidge:consent-change",
+    applyGate
+  );
+
+  applyGate();
 })();

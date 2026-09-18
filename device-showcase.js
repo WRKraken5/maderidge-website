@@ -1,10 +1,10 @@
 // MadeRidge Website Design -- 3D device showcase.
 // Drives a CSS custom property (--progress, 0-1) on .device-rig from the
 // user's scroll position through .device-showcase. The CSS reads
-// --progress to interpolate rotateX/rotateY/translateZ on the monitor and
-// phone (see styles.css), so the devices rotate into a front-facing pose
-// as the section scrolls through view. GPU-only (transform), no library.
-// Fully disabled when the user prefers reduced motion.
+// --progress to spin the monitor and phone (rotateY, opposite directions)
+// as the section scrolls past, settling front-facing at the midpoint.
+// GPU-only (transform), no library. Fully disabled when the user prefers
+// reduced motion.
 
 (function () {
   var section = document.querySelector(".device-showcase");

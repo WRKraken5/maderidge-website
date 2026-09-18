@@ -317,10 +317,10 @@ section[id] {
   margin-bottom: var(--space-2);
 }
 
-/* Device Showcase -- CSS-only 3D monitor + phone, rotated with real
-   perspective/rotateX/Y/Z transforms driven by scroll position via a
-   --progress custom property set in device-showcase.js. GPU-only
-   (transform), no external 3D library. */
+/* Device Showcase -- CSS-only 3D monitor + phone that spin (rotateY sweeps
+   ~176deg, opposite directions) as the user scrolls past this section,
+   driven by a --progress custom property set in device-showcase.js.
+   GPU-only (transform), no external 3D library. */
 .device-showcase {
   padding: var(--space-5) 0 var(--space-6);
   overflow: hidden;
@@ -360,7 +360,7 @@ section[id] {
     translate(-50%, -50%)
     translateZ(calc(-40px + 40px * var(--progress, 0)))
     rotateX(calc(8deg - 4deg * var(--progress, 0)))
-    rotateY(calc(24deg - 20deg * var(--progress, 0)));
+    rotateY(calc(-88deg + 176deg * var(--progress, 0)));
   will-change: transform;
 }
 .device-monitor-edge {
@@ -408,7 +408,7 @@ section[id] {
     translate(-50%, -50%)
     translateZ(calc(30px + 50px * var(--progress, 0)))
     rotateX(calc(6deg - 3deg * var(--progress, 0)))
-    rotateY(calc(-22deg + 10deg * var(--progress, 0)));
+    rotateY(calc(88deg - 176deg * var(--progress, 0)));
   will-change: transform;
 }
 .device-phone-edge {

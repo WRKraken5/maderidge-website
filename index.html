@@ -82,10 +82,14 @@
       <div class="glow-orb-1" aria-hidden="true"></div>
       <div class="glow-orb-2" aria-hidden="true"></div>
       <div class="container">
-        <h1>High-contrast, high-performance web design.</h1>
-        <p class="lede">We build clean, ultra-responsive digital experiences that convert visitors into loyal clients.</p>
-        <a href="#contact" class="btn">Start Your Project</a>
+        <h1 class="reveal-scale">High-contrast, high-performance web design.</h1>
+        <p class="lede reveal reveal-delay-1">We build clean, ultra-responsive digital experiences that convert visitors into loyal clients.</p>
+        <a href="#contact" class="btn reveal reveal-delay-2">Start Your Project</a>
       </div>
+      <a href="#work" class="scroll-cue" aria-label="Scroll to see more">
+        <span>Scroll</span>
+        <span class="scroll-cue-chevron" aria-hidden="true"></span>
+      </a>
     </section>
 
     <!-- Device Showcase -- CSS 3D monitor + phone that rotate into place as the
@@ -142,13 +146,14 @@
     <!-- Recent Work Section -->
     <section class="section" id="work">
       <div class="container">
-        <span class="badge">Proven results</span>
-        <h2 class="reveal">Recent work</h2>
-        <p>Examples of recent websites we have created, shown here with the client's permission.</p>
+        <div class="section-divider reveal-divider"></div>
+        <span class="badge reveal">Proven results</span>
+        <h2 class="reveal-scale">Recent work</h2>
+        <p class="reveal">Examples of recent websites we have created, shown here with the client's permission.</p>
 
         <div class="work-grid">
           <!-- Case Study 1: Crooked Canopy -->
-          <article class="work-card reveal">
+          <article class="work-card reveal-scale">
             <img
               src="/images/placeholder-case-study-1.jpg"
               alt="Screenshot of the dynamic, filterable product catalog on the Crooked Canopy e-commerce homepage"
@@ -162,7 +167,7 @@
           </article>
 
           <!-- Case Study 2: GL Visuals -->
-          <article class="work-card reveal">
+          <article class="work-card reveal-scale">
             <img
               src="/images/placeholder-case-study-2.jpg"
               alt="Screenshot of the high-contrast GL Visuals homepage featuring cinematic media reels"
@@ -181,24 +186,25 @@
     <!-- Services Section -->
     <section class="section section-alt" id="services">
       <div class="container">
-        <span class="badge">Design &amp; code</span>
-        <h2 class="reveal">Services</h2>
+        <div class="section-divider reveal-divider"></div>
+        <span class="badge reveal">Design &amp; code</span>
+        <h2 class="reveal-scale">Services</h2>
         <div class="services-grid">
-          <div class="stacked-list-item reveal">
+          <div class="stacked-list-item reveal-scale">
             <span class="index">01</span>
             <div>
               <h3>Design</h3>
               <p>We create a look that reflects your business, with clear layouts and easy navigation that help customers find what they need.</p>
             </div>
           </div>
-          <div class="stacked-list-item reveal">
+          <div class="stacked-list-item reveal-scale">
             <span class="index">02</span>
             <div>
               <h3>Development</h3>
               <p>We turn your design into a working website built for phones, tablets, and computers, with fast-loading pages and features that fit your business.</p>
             </div>
           </div>
-          <div class="stacked-list-item reveal">
+          <div class="stacked-list-item reveal-scale">
             <span class="index">03</span>
             <div>
               <h3>Launch support</h3>
@@ -212,8 +218,9 @@
     <!-- About Section -->
     <section class="section" id="about">
       <div class="container">
-        <span class="badge">Who we are</span>
-        <h2 class="reveal">About us</h2>
+        <div class="section-divider reveal-divider"></div>
+        <span class="badge reveal">Who we are</span>
+        <h2 class="reveal-scale">About us</h2>
         <p class="lede reveal">MadeRidge is a small, hands-on web design studio run by two experienced creators. We handle every single project ourselves, taking your site from initial sketch to final deployment so your vision never gets lost in translation.</p>
         <p class="reveal"><a href="#work">See our recent work &rarr;</a></p>
       </div>
@@ -222,9 +229,10 @@
     <!-- Contact / Project Cost Estimator Section -->
     <section class="section section-alt" id="contact">
       <div class="container">
-        <span class="badge">Get started</span>
-        <h2 class="reveal">Get an instant project estimate</h2>
-        <p>Answer five quick questions and see a live estimate for your project. It takes about a minute.</p>
+        <div class="section-divider reveal-divider"></div>
+        <span class="badge reveal">Get started</span>
+        <h2 class="reveal-scale">Get an instant project estimate</h2>
+        <p class="reveal">Answer five quick questions and see a live estimate for your project. It takes about a minute.</p>
 
         <div class="quiz-widget reveal" id="quote-quiz">
           <div class="quiz-progress">
@@ -276,6 +284,14 @@
     </div>
   </footer>
 
+  <!-- Floating CTA -- nudges the visitor toward the estimator quiz once
+       the hero has scrolled out of view; hidden again once the quiz
+       itself is on screen (see scroll-cta.js). -->
+  <a href="#contact" class="scroll-cta" id="scroll-cta">
+    <span class="scroll-cta-dot" aria-hidden="true"></span>
+    Get My Free Estimate
+  </a>
+
   <!-- Cookie Consent Banner -->
   <div class="consent-banner" id="consent-banner" hidden role="region" aria-label="Cookie consent">
     <div class="container">
@@ -291,6 +307,8 @@
   <script src="/cookie-consent.js"></script>
   <script src="/scroll-reveal.js"></script>
   <script src="/device-showcase.js"></script>
+  <script src="/tilt.js"></script>
+  <script src="/scroll-cta.js"></script>
   <script src="/quote-quiz.js"></script>
 </body>
 </html>

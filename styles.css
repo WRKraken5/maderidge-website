@@ -693,28 +693,81 @@ input:focus, textarea:focus { border-color: var(--color-gold-strong); }
 /* 404 */
 .error-page { text-align: left; padding: var(--space-6) 0; }
 
-/* Scroll reveal -- subtle fade + rise, triggered once via IntersectionObserver */
+/* Scroll reveal -- fade + rise, triggered once via IntersectionObserver.
+   Three flavors: .reveal (default fade-up), .reveal-scale (soft zoom-in
+   for featured cards/headers), .reveal-divider (line draws in from the
+   left). GPU-only (opacity/transform). */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Staggered delays so grid/list children reveal one after another */
-.work-card.reveal:nth-child(2) { transition-delay: 0.1s; }
-.work-card.reveal:nth-child(3) { transition-delay: 0.2s; }
-.work-card.reveal:nth-child(4) { transition-delay: 0.3s; }
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.96) translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
 
-.stacked-list-item.reveal:nth-child(2) { transition-delay: 0.1s; }
-.stacked-list-item.reveal:nth-child(3) { transition-delay: 0.2s; }
-.stacked-list-item.reveal:nth-child(4) { transition-delay: 0.3s; }
+.reveal-divider {
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.4s ease-out;
+}
+.reveal-divider.is-visible {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* Thin gold line that sits above a section's eyebrow badge */
+.section-divider {
+  height: 1px;
+  width: 100%;
+  max-width: 6rem;
+  background: linear-gradient(90deg, var(--color-gold-strong), transparent);
+  margin-bottom: var(--space-3);
+}
+
+/* Staggered delays so grid/list children reveal one after another */
+.work-card.reveal-scale:nth-child(2) { transition-delay: 0.12s; }
+.work-card.reveal-scale:nth-child(3) { transition-delay: 0.24s; }
+.work-card.reveal-scale:nth-child(4) { transition-delay: 0.36s; }
+
+.stacked-list-item.reveal-scale:nth-child(2) { transition-delay: 0.12s; }
+.stacked-list-item.reveal-scale:nth-child(3) { transition-delay: 0.24s; }
+.stacked-list-item.reveal-scale:nth-child(4) { transition-delay: 0.36s; }
+
+.reveal-delay-1 { transition-delay: 0.15s; }
+.reveal-delay-2 { transition-delay: 0.3s; }
+.reveal-delay-3 { transition-delay: 0.45s; }
+
+/* Arrival moment -- a soft ripple pulse when the estimator quiz, the
+   site's conversion goal, scrolls into view for the first time. */
+#quote-quiz.reveal.is-visible {
+  animation: quiz-spotlight 1.4s ease-out;
+}
+@keyframes quiz-spotlight {
+  0% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.45); }
+  60% { box-shadow: 0 0 0 22px rgba(96, 165, 250, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0); }
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  .reveal,
+  .reveal-scale,
+  .reveal-divider {
     opacity: 1;
     transform: none;
     transition: none;
@@ -723,6 +776,105 @@ input:focus, textarea:focus { border-color: var(--color-gold-strong); }
   .stacked-list-item {
     transition: none;
   }
+  #quote-quiz.reveal.is-visible {
+    animation: none;
+  }
+}
+
+/* Tilt cards -- work-card and stacked-list-item pick up a subtle
+   pointer-driven 3D tilt from tilt.js (rotateX/rotateY only, GPU-safe).
+   Disabled entirely on touch devices and reduced motion via the script. */
+.work-grid,
+.services-grid {
+  perspective: 1400px;
+}
+.work-card,
+.stacked-list-item {
+  transform-style: preserve-3d;
+}
+
+/* Hero scroll cue -- small bouncing chevron inviting the visitor to keep
+   scrolling toward the work below and, eventually, the estimator. */
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-3);
+  transform: translateX(-50%);
+  z-index: 1;
+  color: var(--color-ink-soft);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.scroll-cue-chevron {
+  display: block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  animation: scroll-cue-bounce 1.8s ease-in-out infinite;
+}
+@keyframes scroll-cue-bounce {
+  0%, 100% { transform: rotate(45deg) translate(0, 0); opacity: 0.55; }
+  50% { transform: rotate(45deg) translate(5px, 5px); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue-chevron { animation: none; }
+}
+
+/* Floating "get estimate" CTA -- fades in once the hero has scrolled out
+   of view, nudging the visitor toward the quiz at the bottom, and hides
+   again once the quiz itself is on screen. */
+.scroll-cta {
+  position: fixed;
+  right: var(--space-3);
+  bottom: var(--space-3);
+  z-index: 150;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.3rem;
+  background: var(--color-gold-strong);
+  color: var(--color-bg);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-radius: 9999px;
+  box-shadow: 0 18px 40px -12px rgba(96, 165, 250, 0.55);
+  opacity: 0;
+  transform: translateY(16px) scale(0.94);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.scroll-cta.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.scroll-cta-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-bg);
+  animation: scroll-cta-pulse 1.8s ease-in-out infinite;
+}
+@keyframes scroll-cta-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.7); opacity: 0.35; }
+}
+@media (max-width: 40rem) {
+  .scroll-cta { right: var(--space-2); bottom: var(--space-2); padding: 0.7rem 1.05rem; font-size: 0.85rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cta { transition: opacity 0.2s linear; transform: none; }
+  .scroll-cta-dot { animation: none; }
 }
 
 /* Project Cost Estimator quiz */

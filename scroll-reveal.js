@@ -1,14 +1,17 @@
 // MadeRidge Website Design -- lightweight scroll-reveal animation.
 // Vanilla IntersectionObserver, no external libraries. Reveals each
-// .reveal element once, then stops observing it (no re-animating on
-// scroll-back-up). Fully disabled when the user prefers reduced motion.
+// .reveal / .reveal-scale / .reveal-divider element once, then stops
+// observing it (no re-animating on scroll-back-up). Fully disabled when
+// the user prefers reduced motion.
 
 (function () {
   var prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
-  var revealEls = document.querySelectorAll(".reveal");
+  var revealEls = document.querySelectorAll(
+    ".reveal, .reveal-scale, .reveal-divider"
+  );
   if (!revealEls.length) return;
 
   // Reduced motion, or no IntersectionObserver support: show everything

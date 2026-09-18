@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* MadeRidge Website Design -- design tokens.
+   The site is a fixed dark theme by design (this was true of the original
+   static build too: :root and the dark-mode media query held the same
+   values), so these live directly on :root rather than behind a .dark
+   class toggle. */
+:root {
+  --background: #111827; /* page background */
+  --foreground: #f9fafb; /* headings and primary text -- 17.0:1 on bg */
+
+  --card: #1f2937; /* raised surfaces / cards */
+  --card-foreground: #f9fafb;
+  --popover: #1f2937;
+  --popover-foreground: #f9fafb;
+
+  --primary: #60a5fa; /* accent blue -- buttons, links, active states */
+  --primary-foreground: #0b1220; /* dark text on the blue accent -- 8.6:1 */
+
+  --secondary: #1f2937;
+  --secondary-foreground: #f9fafb;
+
+  --muted: #1f2937;
+  --muted-foreground: #9ca3af; /* placeholders / captions -- 7.0:1 on bg */
+
+  --accent: #263244; /* subtle hover surface, one step up from card */
+  --accent-foreground: #f9fafb;
+
+  --destructive: #f87171; /* form errors -- 6.4:1 on bg */
+  --destructive-foreground: #0b1220;
+
+  --border: #374151;
+  --input: #374151;
+  --ring: #93c5fd; /* focus ring */
+
+  /* Kept distinct from --foreground for body copy, matching the original
+     static site's --color-ink-soft token (12.0:1 on bg). */
+  --ink-soft: #d1d5db;
+
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink-soft: var(--ink-soft);
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-public-sans);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Subtle shadows only -- flat, low-opacity, no glow. */
+  --shadow-color: 220 40% 2%;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-semibold leading-tight;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+}
+
+@layer utilities {
+  .shadow-subtle {
+    box-shadow: 0 1px 2px hsl(var(--shadow-color) / 0.4);
+  }
+  .shadow-subtle-md {
+    box-shadow: 0 4px 12px -4px hsl(var(--shadow-color) / 0.5);
+  }
+}

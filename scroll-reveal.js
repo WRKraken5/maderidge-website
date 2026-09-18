@@ -1,23 +1,20 @@
-// MadeRidge Website Design -- lightweight scroll animation system.
+// MadeRidge Website Design -- lightweight scroll-reveal animation.
 // Vanilla IntersectionObserver, no external libraries. Reveals each
-// .animate-on-scroll / .animate-scale-fade / .animate-divider element
-// once, then stops observing it (no re-animating on scroll-back-up).
-// Fully disabled when the user prefers reduced motion.
+// .reveal element once, then stops observing it (no re-animating on
+// scroll-back-up). Fully disabled when the user prefers reduced motion.
 
 (function () {
   var prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
-  var animatedEls = document.querySelectorAll(
-    ".animate-on-scroll, .animate-scale-fade, .animate-divider"
-  );
-  if (!animatedEls.length) return;
+  var revealEls = document.querySelectorAll(".reveal");
+  if (!revealEls.length) return;
 
   // Reduced motion, or no IntersectionObserver support: show everything
   // immediately, no animation, no observer.
   if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-    animatedEls.forEach(function (el) {
+    revealEls.forEach(function (el) {
       el.classList.add("is-visible");
     });
     return;
@@ -34,11 +31,11 @@
     },
     {
       threshold: 0.15,
-      rootMargin: "0px 0px -50px 0px",
+      rootMargin: "0px 0px -40px 0px",
     }
   );
 
-  animatedEls.forEach(function (el) {
+  revealEls.forEach(function (el) {
     observer.observe(el);
   });
 })();

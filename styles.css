@@ -238,15 +238,6 @@ section[id] {
 .section { padding: var(--space-6) 0; }
 .section-alt { background: var(--color-bg-raised); }
 
-/* Section divider line -- sits above a section's eyebrow badge */
-.section-divider {
-  height: 1px;
-  width: 100%;
-  max-width: 6rem;
-  background: linear-gradient(90deg, var(--color-gold-strong), transparent);
-  margin-bottom: var(--space-3);
-}
-
 /* Hero -- ambient radial glow sits behind the headline, blurred and layered low */
 .hero {
   position: relative;
@@ -522,62 +513,34 @@ input:focus, textarea:focus { border-color: var(--color-gold-strong); }
 /* 404 */
 .error-page { text-align: left; padding: var(--space-6) 0; }
 
-/* Scroll animations -- GPU-only (opacity + transform), triggered once via
-   IntersectionObserver. Restrained, editorial motion: no bounce, no overshoot. */
-
-/* Fade Up Lift -- default enter transition for most elements */
-.animate-on-scroll {
+/* Scroll reveal -- subtle fade + rise, triggered once via IntersectionObserver */
+.reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-.animate-on-scroll.is-visible {
+.reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Subtle Scale Fade -- soft zoom-in for section headers, hero elements,
-   and featured project cards */
-.animate-scale-fade {
-  opacity: 0;
-  transform: scale(0.96) translateY(20px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-.animate-scale-fade.is-visible {
-  opacity: 1;
-  transform: scale(1) translateY(0);
-}
+/* Staggered delays so grid/list children reveal one after another */
+.work-card.reveal:nth-child(2) { transition-delay: 0.1s; }
+.work-card.reveal:nth-child(3) { transition-delay: 0.2s; }
+.work-card.reveal:nth-child(4) { transition-delay: 0.3s; }
 
-/* Divider lines -- draw in from the left as they scroll into view */
-.animate-divider {
-  transform: scaleX(0);
-  transform-origin: left;
-  opacity: 0;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.4s ease-out;
-  will-change: transform, opacity;
-}
-.animate-divider.is-visible {
-  transform: scaleX(1);
-  opacity: 1;
-}
-
-/* Staggered delays so grid/list children animate sequentially */
-.delay-100 { transition-delay: 0.1s; }
-.delay-200 { transition-delay: 0.2s; }
-.delay-300 { transition-delay: 0.3s; }
-.delay-400 { transition-delay: 0.4s; }
+.stacked-list-item.reveal:nth-child(2) { transition-delay: 0.1s; }
+.stacked-list-item.reveal:nth-child(3) { transition-delay: 0.2s; }
+.stacked-list-item.reveal:nth-child(4) { transition-delay: 0.3s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-on-scroll,
-  .animate-scale-fade,
-  .animate-divider {
+  .reveal {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+  .work-card,
+  .stacked-list-item {
     transition: none;
   }
 }

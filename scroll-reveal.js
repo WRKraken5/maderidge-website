@@ -1,15 +1,17 @@
 // MadeRidge Website Design -- lightweight scroll animation system.
 // Vanilla IntersectionObserver, no external libraries. Reveals each
-// .animate-on-scroll element once, then stops observing it (no
-// re-animating on scroll-back-up). Fully disabled when the user
-// prefers reduced motion.
+// .animate-on-scroll / .animate-scale-fade / .animate-divider element
+// once, then stops observing it (no re-animating on scroll-back-up).
+// Fully disabled when the user prefers reduced motion.
 
 (function () {
   var prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
-  var animatedEls = document.querySelectorAll(".animate-on-scroll");
+  var animatedEls = document.querySelectorAll(
+    ".animate-on-scroll, .animate-scale-fade, .animate-divider"
+  );
   if (!animatedEls.length) return;
 
   // Reduced motion, or no IntersectionObserver support: show everything
